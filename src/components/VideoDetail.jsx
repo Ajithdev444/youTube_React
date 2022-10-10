@@ -19,7 +19,7 @@ const VideoDetail = () => {
     .then((data) => setVideoDetail(data.items[0]));
   },[id]);
 
-  fetchFromAPI(`videos?part=snippet&relatedToVideoId=${id}&type=video`)
+  fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`)
   .then((data) => setVideos(data.items));
 
   if(!videoDetail?.snippet) return 'Loading...';
@@ -32,7 +32,7 @@ const VideoDetail = () => {
         <Box flex={1}>
         <Box sx={{ width: '100%', position: 'sticky', top: '86px'}}>
           <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} 
-          className='React-player' controls />
+          className="React-player" controls />
           <Typography color="#fff" variant='h5' fontWeight='bold' p={2}>
             {title}
           </Typography>
@@ -56,7 +56,7 @@ const VideoDetail = () => {
         </Box>
         </Box>
             <Box px={2} py={{ md:1, xs:5 }} justifyContent="center" alignItems='center'>
-            <Videos videos={videos} direction='column'/>
+            <Videos videos={videos} direction="column"/>
       </Box>
       </Stack>
     </Box>
